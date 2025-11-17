@@ -15,6 +15,8 @@ import info_icon from './info_icon.svg'
 import upload_icon from './upload_icon.png'
 import stripe_logo from './stripe_logo.png'
 import razorpay_logo from './razorpay_logo.png'
+
+// Service provider profile images (using existing doctor images as placeholders)
 import doc1 from './doc1.png'
 import doc2 from './doc2.png'
 import doc3 from './doc3.png'
@@ -30,12 +32,14 @@ import doc12 from './doc12.png'
 import doc13 from './doc13.png'
 import doc14 from './doc14.png'
 import doc15 from './doc15.png'
-import Dermatologist from './Dermatologist.svg'
-import Gastroenterologist from './Gastroenterologist.svg'
-import General_physician from './General_physician.svg'
-import Gynecologist from './Gynecologist.svg'
-import Neurologist from './Neurologist.svg'
-import Pediatricians from './Pediatricians.svg'
+
+// Service category icons
+import HouseCleaning from './HouseCleaning.svg'
+import Electrician from './Electrician.svg'
+import Plumber from './Plumber.svg'
+import ACRepair from './ACRepair.svg'
+import ApplianceRepair from './ApplianceRepair.svg'
+import Gardening from './Gardening.svg'
 
 
 export const assets = {
@@ -58,242 +62,272 @@ export const assets = {
     razorpay_logo
 }
 
-export const specialityData = [
+export const serviceCategories = [
     {
-        speciality: 'General physician',
-        image: General_physician
+        category: 'House Cleaning',
+        image: HouseCleaning
     },
     {
-        speciality: 'Gynecologist',
-        image: Gynecologist
+        category: 'Electrician',
+        image: Electrician
     },
     {
-        speciality: 'Dermatologist',
-        image: Dermatologist
+        category: 'Plumbing',
+        image: Plumber
     },
     {
-        speciality: 'Pediatricians',
-        image: Pediatricians
+        category: 'AC Repair',
+        image: ACRepair
     },
     {
-        speciality: 'Neurologist',
-        image: Neurologist
+        category: 'Appliance Repair',
+        image: ApplianceRepair
     },
     {
-        speciality: 'Gastroenterologist',
-        image: Gastroenterologist
+        category: 'Gardening',
+        image: Gardening
     },
 ]
 
 export const doctors = [
     {
-        _id: 'doc1',
-        name: 'Dr. Richard James',
+        _id: 'service1',
+        name: 'Sarah Johnson',
         image: doc1,
-        speciality: 'General physician',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Richard James has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Richard James has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        speciality: 'House Cleaning',
+        degree: 'Professional Cleaner',
+        experience: '5 Years',
+        about: 'Professional house cleaning services with eco-friendly products. Specializing in deep cleaning, regular maintenance, and post-construction cleanup.',
         fees: 50,
         address: {
-            line1: '17th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+            line1: '123 Main Street',
+            line2: 'Downtown Area'
+        },
+        available: true,
+        slots_booked: {}
     },
     {
-        _id: 'doc2',
-        name: 'Dr. Emily Larson',
+        _id: 'service2',
+        name: 'Mike Chen',
         image: doc2,
-        speciality: 'Gynecologist',
-        degree: 'MBBS',
-        experience: '3 Years',
-        about: 'Dr. Emily Larson has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Emily Larson has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 60,
+        speciality: 'Electrician',
+        degree: 'Licensed Electrician',
+        experience: '8 Years',
+        about: 'Licensed electrician specializing in residential electrical installations, repairs, and safety inspections.',
+        fees: 75,
         address: {
-            line1: '27th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+            line1: '456 Oak Avenue',
+            line2: 'North Side'
+        },
+        available: true,
+        slots_booked: {}
     },
     {
-        _id: 'doc3',
-        name: 'Dr. Sarah Patel',
+        _id: 'service3',
+        name: 'Lisa Rodriguez',
         image: doc3,
-        speciality: 'Dermatologist',
-        degree: 'MBBS',
-        experience: '1 Year',
-        about: 'Dr. Sarah Patel has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Sarah Patel has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 30,
+        speciality: 'Plumbing',
+        degree: 'Expert Plumber',
+        experience: '6 Years',
+        about: 'Expert plumber for all your water-related needs. From leak repairs to complete bathroom renovations.',
+        fees: 60,
         address: {
-            line1: '37th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+            line1: '789 Pine Road',
+            line2: 'East District'
+        },
+        available: true,
+        slots_booked: {}
     },
     {
-        _id: 'doc4',
-        name: 'Dr. Christopher Lee',
+        _id: 'service4',
+        name: 'David Wilson',
         image: doc4,
-        speciality: 'Pediatricians',
-        degree: 'MBBS',
-        experience: '2 Years',
-        about: 'Dr. Christopher Lee has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Christopher Lee has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 40,
+        speciality: 'AC Repair',
+        degree: 'Certified HVAC Technician',
+        experience: '10 Years',
+        about: 'Certified HVAC technician with expertise in AC installation, repair, and maintenance services.',
+        fees: 80,
         address: {
-            line1: '47th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+            line1: '321 Elm Street',
+            line2: 'West End'
+        },
+        available: true,
+        slots_booked: {}
     },
     {
-        _id: 'doc5',
-        name: 'Dr. Jennifer Garcia',
+        _id: 'service5',
+        name: 'Emma Thompson',
         image: doc5,
-        speciality: 'Neurologist',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Jennifer Garcia has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Jennifer Garcia has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
+        speciality: 'Appliance Repair',
+        degree: 'Professional Appliance Repair Specialist',
+        experience: '7 Years',
+        about: 'Professional appliance repair specialist for washing machines, refrigerators, dishwashers, and more.',
+        fees: 65,
         address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+            line1: '654 Maple Drive',
+            line2: 'Central Area'
+        },
+        available: true,
+        slots_booked: {}
     },
     {
-        _id: 'doc6',
-        name: 'Dr. Andrew Williams',
+        _id: 'service6',
+        name: 'James Parker',
         image: doc6,
-        speciality: 'Neurologist',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Andrew Williams has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Andrew Williams has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
-        address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
-    },
-    {
-        _id: 'doc7',
-        name: 'Dr. Christopher Davis',
-        image: doc7,
-        speciality: 'General physician',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Christopher Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Christopher Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
-        address: {
-            line1: '17th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
-    },
-    {
-        _id: 'doc8',
-        name: 'Dr. Timothy White',
-        image: doc8,
-        speciality: 'Gynecologist',
-        degree: 'MBBS',
-        experience: '3 Years',
-        about: 'Dr. Timothy White has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Timothy White has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 60,
-        address: {
-            line1: '27th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
-    },
-    {
-        _id: 'doc9',
-        name: 'Dr. Ava Mitchell',
-        image: doc9,
-        speciality: 'Dermatologist',
-        degree: 'MBBS',
-        experience: '1 Year',
-        about: 'Dr. Ava Mitchell has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Ava Mitchell has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 30,
-        address: {
-            line1: '37th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
-    },
-    {
-        _id: 'doc10',
-        name: 'Dr. Jeffrey King',
-        image: doc10,
-        speciality: 'Pediatricians',
-        degree: 'MBBS',
-        experience: '2 Years',
-        about: 'Dr. Jeffrey King has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Jeffrey King has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        speciality: 'Gardening',
+        degree: 'Expert Gardener',
+        experience: '12 Years',
+        about: 'Expert gardener providing landscaping, lawn care, and garden maintenance services.',
         fees: 40,
         address: {
-            line1: '47th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+            line1: '987 Cedar Lane',
+            line2: 'South Valley'
+        },
+        available: true,
+        slots_booked: {}
     },
     {
-        _id: 'doc11',
-        name: 'Dr. Zoe Kelly',
+        _id: 'service7',
+        name: 'Maria Garcia',
+        image: doc7,
+        speciality: 'House Cleaning',
+        degree: 'Reliable Cleaner',
+        experience: '4 Years',
+        about: 'Reliable house cleaning service with attention to detail. Specializing in move-in and move-out cleaning.',
+        fees: 45,
+        address: {
+            line1: '147 Birch Street',
+            line2: 'Downtown Area'
+        },
+        available: true,
+        slots_booked: {}
+    },
+    {
+        _id: 'service8',
+        name: 'Robert Kim',
+        image: doc8,
+        speciality: 'Electrician',
+        degree: 'Master Electrician',
+        experience: '9 Years',
+        about: 'Master electrician with expertise in smart home installations and electrical troubleshooting.',
+        fees: 85,
+        address: {
+            line1: '258 Spruce Avenue',
+            line2: 'North Side'
+        },
+        available: true,
+        slots_booked: {}
+    },
+    {
+        _id: 'service9',
+        name: 'Anna Martinez',
+        image: doc9,
+        speciality: 'Plumbing',
+        degree: 'Experienced Plumber',
+        experience: '5 Years',
+        about: 'Experienced plumber focusing on emergency repairs and water system installations.',
+        fees: 55,
+        address: {
+            line1: '369 Willow Road',
+            line2: 'East District'
+        },
+        available: true,
+        slots_booked: {}
+    },
+    {
+        _id: 'service10',
+        name: 'Chris Anderson',
+        image: doc10,
+        speciality: 'AC Repair',
+        degree: 'Air Conditioning Specialist',
+        experience: '8 Years',
+        about: 'Air conditioning specialist offering comprehensive HVAC solutions for residential properties.',
+        fees: 70,
+        address: {
+            line1: '741 Aspen Drive',
+            line2: 'West End'
+        },
+        available: true,
+        slots_booked: {}
+    },
+    {
+        _id: 'service11',
+        name: 'Sophie Davis',
         image: doc11,
-        speciality: 'Gastroenterologist',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Zoe Kelly has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Zoe Kelly has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
-        address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
-    },
-    {
-        _id: 'doc12',
-        name: 'Dr. Patrick Harris',
-        image: doc12,
-        speciality: 'Neurologist',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Patrick Harris has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Patrick Harris has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
-        address: {
-            line1: '57th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
-    },
-    {
-        _id: 'doc13',
-        name: 'Dr. Chloe Evans',
-        image: doc13,
-        speciality: 'General physician',
-        degree: 'MBBS',
-        experience: '4 Years',
-        about: 'Dr. Chloe Evans has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Chloe Evans has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 50,
-        address: {
-            line1: '17th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
-    },
-    {
-        _id: 'doc14',
-        name: 'Dr. Ryan Martinez',
-        image: doc14,
-        speciality: 'Gynecologist',
-        degree: 'MBBS',
-        experience: '3 Years',
-        about: 'Dr. Ryan Martinez has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Ryan Martinez has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        speciality: 'Appliance Repair',
+        degree: 'Skilled Appliance Technician',
+        experience: '6 Years',
+        about: 'Skilled appliance technician with expertise in major home appliances and troubleshooting.',
         fees: 60,
         address: {
-            line1: '27th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+            line1: '852 Redwood Lane',
+            line2: 'Central Area'
+        },
+        available: true,
+        slots_booked: {}
     },
     {
-        _id: 'doc15',
-        name: 'Dr. Amelia Hill',
-        image: doc15,
-        speciality: 'Dermatologist',
-        degree: 'MBBS',
-        experience: '1 Year',
-        about: 'Dr. Amelia Hill has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Amelia Hill has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
-        fees: 30,
+        _id: 'service12',
+        name: 'Tony Green',
+        image: doc12,
+        speciality: 'Gardening',
+        degree: 'Professional Landscaper',
+        experience: '15 Years',
+        about: 'Professional landscaper specializing in sustainable gardening and eco-friendly solutions.',
+        fees: 50,
         address: {
-            line1: '37th Cross, Richmond',
-            line2: 'Circle, Ring Road, London'
-        }
+            line1: '963 Fir Street',
+            line2: 'South Valley'
+        },
+        available: true,
+        slots_booked: {}
     },
+    {
+        _id: 'service13',
+        name: 'Jennifer Lee',
+        image: doc13,
+        speciality: 'House Cleaning',
+        degree: 'Detail-Oriented Cleaner',
+        experience: '3 Years',
+        about: 'Detail-oriented cleaner offering personalized cleaning services for homes and small offices.',
+        fees: 40,
+        address: {
+            line1: '159 Cypress Avenue',
+            line2: 'Downtown Area'
+        },
+        available: true,
+        slots_booked: {}
+    },
+    {
+        _id: 'service14',
+        name: 'Mark Johnson',
+        image: doc14,
+        speciality: 'Electrician',
+        degree: 'Senior Electrician',
+        experience: '11 Years',
+        about: 'Senior electrician providing commercial and residential electrical services with safety focus.',
+        fees: 90,
+        address: {
+            line1: '357 Hemlock Road',
+            line2: 'North Side'
+        },
+        available: true,
+        slots_booked: {}
+    },
+    {
+        _id: 'service15',
+        name: 'Nancy Wilson',
+        image: doc15,
+        speciality: 'Plumbing',
+        degree: 'Professional Plumber',
+        experience: '7 Years',
+        about: 'Professional plumber with expertise in modern plumbing technologies and eco-friendly solutions.',
+        fees: 65,
+        address: {
+            line1: '246 Magnolia Drive',
+            line2: 'East District'
+        },
+        available: true,
+        slots_booked: {}
+    }
 ]

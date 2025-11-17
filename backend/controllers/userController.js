@@ -10,10 +10,13 @@ import razorpay from 'razorpay';
 
 // Gateway Initialize
 const stripeInstance = new stripe(process.env.STRIPE_SECRET_KEY)
-const razorpayInstance = new razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID,
-    key_secret: process.env.RAZORPAY_KEY_SECRET,
-})
+let razorpayInstance = null;
+if (process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET) {
+    razorpayInstance = new razorpay({
+        key_id: process.env.RAZORPAY_KEY_ID,
+        key_secret: process.env.RAZORPAY_KEY_SECRET,
+    })
+}
 
 // API to register user
 const registerUser = async (req, res) => {
@@ -239,6 +242,10 @@ const listAppointment = async (req, res) => {
 const paymentRazorpay = async (req, res) => {
     try {
 
+        if (!razorpayInstance) {
+            return res.json({ success: false, message: 'Razorpay not configured' })
+        }
+
         const { appointmentId } = req.body
         const appointmentData = await appointmentModel.findById(appointmentId)
 
@@ -267,6 +274,9 @@ const paymentRazorpay = async (req, res) => {
 // API to verify payment of razorpay
 const verifyRazorpay = async (req, res) => {
     try {
+        if (!razorpayInstance) {
+            return res.json({ success: false, message: 'Razorpay not configured' })
+        }
         const { razorpay_order_id } = req.body
         const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
 

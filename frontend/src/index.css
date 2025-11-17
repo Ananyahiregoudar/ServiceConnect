@@ -1,11 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-    font-family: Outfit;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    @apply bg-gray-50 text-dark;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
 }
 
 .active hr {
@@ -20,4 +28,63 @@
 
 ::-webkit-scrollbar {
     @apply hidden
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Custom button styles */
+.btn-primary {
+    @apply bg-primary hover:bg-secondary text-white font-medium py-3 px-6 rounded-full transition-all duration-300 shadow-card hover:shadow-card-hover;
+}
+
+.btn-secondary {
+    @apply bg-white hover:bg-gray-100 text-primary border-2 border-primary font-medium py-3 px-6 rounded-full transition-all duration-300;
+}
+
+/* Card hover effect */
+.service-card {
+    @apply transition-all duration-300 transform hover:-translate-y-2 hover:shadow-card-hover;
+}
+
+/* Category badge styles */
+.category-badge {
+    @apply px-3 py-1 rounded-full text-xs font-semibold;
+}
+
+.category-cleaning {
+    @apply bg-cleaning/20 text-cleaning;
+}
+
+.category-electrician {
+    @apply bg-electrician/20 text-electrician;
+}
+
+.category-plumbing {
+    @apply bg-plumbing/20 text-plumbing;
+}
+
+.category-ac {
+    @apply bg-ac-repair/20 text-ac-repair;
+}
+
+.category-appliance {
+    @apply bg-appliance/20 text-appliance;
+}
+
+.category-gardening {
+    @apply bg-gardening/20 text-gardening;
 }

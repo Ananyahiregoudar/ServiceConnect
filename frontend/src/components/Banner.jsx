@@ -3,24 +3,52 @@ import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
 
 const Banner = () => {
-
     const navigate = useNavigate()
 
     return (
-        <div className='flex bg-primary rounded-lg  px-6 sm:px-10 md:px-14 lg:px-12 my-20 md:mx-10'>
-
-            {/* ------- Left Side ------- */}
-            <div className='flex-1 py-8 sm:py-10 md:py-16 lg:py-24 lg:pl-5'>
-                <div className='text-xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold text-white'>
-                    <p>Book Appointment</p>
-                    <p className='mt-4'>With 100+ Trusted Doctors</p>
+        <div className='py-16 px-4 md:px-8'>
+            <div className='max-w-7xl mx-auto'>
+                <div className='bg-gradient-to-r from-primary to-secondary rounded-3xl overflow-hidden shadow-hero'>
+                    <div className='flex flex-col md:flex-row items-center p-8 md:p-12 lg:p-16'>
+                        <div className='md:w-1/2 mb-8 md:mb-0 md:pr-8'>
+                            <h2 className='text-3xl md:text-4xl font-bold text-white mb-4 font-heading'>
+                                Ready to Transform Your Home?
+                            </h2>
+                            <p className='text-white/90 text-lg mb-6'>
+                                Join thousands of satisfied customers who trust ServiceConnect for all their home service needs. 
+                                Professional, reliable, and affordable services delivered to your doorstep.
+                            </p>
+                            <div className='flex flex-col sm:flex-row gap-4'>
+                                <button 
+                                    onClick={() => { navigate('/login'); scrollTo(0, 0) }}
+                                    className='btn-primary bg-white text-primary hover:bg-gray-100'
+                                >
+                                    Get Started
+                                </button>
+                                <button 
+                                    onClick={() => { navigate('/doctors'); scrollTo(0, 0) }}
+                                    className='btn-secondary bg-white/20 text-white border-white hover:bg-white/30'
+                                >
+                                    Browse Services
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div className='md:w-1/2 flex justify-center'>
+                            <div className='relative'>
+                                <div className='w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-white/20 backdrop-blur-sm absolute -top-4 -left-4'></div>
+                                <div className='w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-white/20 backdrop-blur-sm absolute -bottom-4 -right-4'></div>
+                                <div className='relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-hero'>
+                                    <img 
+                                        className='w-full h-full object-cover' 
+                                        src={assets.appointment_img} 
+                                        alt="Home Services" 
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button onClick={() => { navigate('/login'); scrollTo(0, 0) }} className='bg-white text-sm sm:text-base text-[#595959] px-8 py-3 rounded-full mt-6 hover:scale-105 transition-all '>Create account</button>
-            </div>
-
-            {/* ------- Right Side ------- */}
-            <div className='hidden md:block md:w-1/2 lg:w-[370px] relative'>
-                <img className='w-full absolute bottom-0 right-0 max-w-md' src={assets.appointment_img} alt="" />
             </div>
         </div>
     )

@@ -60,8 +60,8 @@ const MyAppointments = () => {
             key: import.meta.env.VITE_RAZORPAY_KEY_ID,
             amount: order.amount,
             currency: order.currency,
-            name: 'Appointment Payment',
-            description: "Appointment Payment",
+            name: 'Service Payment',
+            description: "Service Payment",
             order_id: order.id,
             receipt: order.receipt,
             handler: async (response) => {
@@ -125,7 +125,7 @@ const MyAppointments = () => {
 
     return (
         <div>
-            <p className='pb-3 mt-12 text-lg font-medium text-gray-600 border-b'>My appointments</p>
+            <p className='pb-3 mt-12 text-lg font-medium text-gray-600 border-b'>My Service Appointments</p>
             <div className=''>
                 {appointments.map((item, index) => (
                     <div key={index} className='grid grid-cols-[1fr_2fr] gap-4 sm:flex sm:gap-6 py-4 border-b'>
@@ -149,8 +149,8 @@ const MyAppointments = () => {
 
                             {item.isCompleted && <button className='sm:min-w-48 py-2 border border-green-500 rounded text-green-500'>Completed</button>}
 
-                            {!item.cancelled && !item.isCompleted && <button onClick={() => cancelAppointment(item._id)} className='text-[#696969] sm:min-w-48 py-2 border rounded hover:bg-red-600 hover:text-white transition-all duration-300'>Cancel appointment</button>}
-                            {item.cancelled && !item.isCompleted && <button className='sm:min-w-48 py-2 border border-red-500 rounded text-red-500'>Appointment cancelled</button>}
+                            {!item.cancelled && !item.isCompleted && <button onClick={() => cancelAppointment(item._id)} className='text-[#696969] sm:min-w-48 py-2 border rounded hover:bg-red-600 hover:text-white transition-all duration-300'>Cancel Service</button>}
+                            {item.cancelled && !item.isCompleted && <button className='sm:min-w-48 py-2 border border-red-500 rounded text-red-500'>Service Cancelled</button>}
                         </div>
                     </div>
                 ))}
