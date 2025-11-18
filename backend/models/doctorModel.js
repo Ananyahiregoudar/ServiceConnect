@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-const doctorSchema = new mongoose.Schema({
+// Service Provider schema (previously doctor)
+const serviceProviderSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
@@ -16,5 +17,6 @@ const doctorSchema = new mongoose.Schema({
     date: { type: Number, required: true },
 }, { minimize: false })
 
-const doctorModel = mongoose.models.doctor || mongoose.model("doctor", doctorSchema);
+// Use collection name "service_provider" instead of "doctor"
+const doctorModel = mongoose.models.service_provider || mongoose.model("service_provider", serviceProviderSchema);
 export default doctorModel;

@@ -35,9 +35,9 @@ const Navbar = () => {
         {/* Logo */}
         <div className='flex items-center cursor-pointer' onClick={() => navigate('/')}>
           <div className='w-10 h-10 rounded-lg bg-primary flex items-center justify-center mr-3'>
-            <span className='text-white font-bold text-xl'>S</span>
+            <span className='text-white font-bold text-xl'>B</span>
           </div>
-          <span className='text-2xl font-bold text-dark'>Service<span className='text-primary'>Connect</span></span>
+          <span className='text-2xl font-bold text-dark'>BookMy<span className='text-primary'>Service</span></span>
         </div>
 
         {/* Desktop Navigation */}
@@ -112,9 +112,9 @@ const Navbar = () => {
           <div className='flex items-center justify-between p-6 border-b'>
             <div className='flex items-center'>
               <div className='w-10 h-10 rounded-lg bg-primary flex items-center justify-center mr-3'>
-                <span className='text-white font-bold text-xl'>S</span>
+                <span className='text-white font-bold text-xl'>B</span>
               </div>
-              <span className='text-2xl font-bold text-dark'>Service<span className='text-primary'>Connect</span></span>
+              <span className='text-2xl font-bold text-dark'>BookMy<span className='text-primary'>Service</span></span>
             </div>
             <button onClick={() => setShowMenu(false)} className='w-8 h-8 flex flex-col justify-center items-center'>
               <span className='w-6 h-0.5 bg-dark block rotate-45 translate-y-1'></span>

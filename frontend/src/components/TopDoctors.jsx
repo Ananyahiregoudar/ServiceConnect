@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
+import { serviceImages } from '../assets/assets'
 
 const TopDoctors = () => {
     const navigate = useNavigate()
@@ -40,8 +41,8 @@ const TopDoctors = () => {
                             <div className='relative'>
                                 <img 
                                     className='w-full h-48 object-cover' 
-                                    src={item.image} 
-                                    alt={item.name} 
+                                    src={serviceImages[item.speciality] || item.image} 
+                                    alt={`${item.speciality} service`} 
                                 />
                                 <div className='absolute top-4 right-4'>
                                     <div className='flex items-center bg-white/80 backdrop-blur-sm rounded-full px-3 py-1'>
@@ -55,7 +56,7 @@ const TopDoctors = () => {
                             
                             <div className='p-6'>
                                 <div className='flex justify-between items-start mb-3'>
-                                    <h3 className='text-xl font-semibold text-dark'>{item.name}</h3>
+                                    <h3 className='text-xl font-semibold text-dark'>{item.speciality} Service</h3>
                                     <span className={`category-badge ${getCategoryColor(item.speciality)}`}>
                                         {item.speciality}
                                     </span>

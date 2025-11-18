@@ -83,7 +83,7 @@ const Home = () => {
                 <div className='max-w-7xl mx-auto'>
                     <div className='text-center mb-12'>
                         <h2 className='text-3xl md:text-4xl font-bold text-dark mb-4 font-heading'>
-                            Why Choose ServiceConnect?
+                            Why Choose BookMyService?
                         </h2>
                         <p className='text-gray-600 max-w-2xl mx-auto'>
                             We make home services simple, reliable, and affordable with our unique approach.
@@ -94,7 +94,7 @@ const Home = () => {
                         {features.map((feature, index) => (
                             <div 
                                 key={index} 
-                                className='bg-white rounded-2xl p-6 shadow-card border border-gray-100 text-center hover:shadow-card-hover transition-all duration-300'
+                                className='bg-white rounded-2xl p-6 shadow-card border border-gray-100 text-center hover:shadow-card-hover transition-all duration-300 fade-in-up'
                             >
                                 <div className='w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 text-primary'>
                                     {feature.icon}
@@ -123,7 +123,7 @@ const Home = () => {
                         {howItWorks.map((step, index) => (
                             <div 
                                 key={index} 
-                                className='relative bg-white rounded-2xl p-6 shadow-card border border-gray-100 text-center service-card'
+                                className='relative bg-white rounded-2xl p-6 shadow-card border border-gray-100 text-center service-card fade-in-up'
                             >
                                 <div className='absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-lg'>
                                     {step.step}
@@ -163,7 +163,7 @@ const Home = () => {
                         {[1, 2, 3].map((item) => (
                             <div 
                                 key={item} 
-                                className='bg-white rounded-2xl p-6 shadow-card border border-gray-100'
+                                className='bg-white rounded-2xl p-6 shadow-card border border-gray-100 service-card fade-in-up'
                             >
                                 <div className='flex items-center mb-4'>
                                     <div className='w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4'>

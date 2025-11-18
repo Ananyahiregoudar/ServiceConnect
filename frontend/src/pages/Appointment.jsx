@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
-import { assets } from '../assets/assets'
+import { assets, serviceImages } from '../assets/assets'
 import RelatedDoctors from '../components/RelatedDoctors'
 import axios from 'axios'
 import { toast } from 'react-toastify'
@@ -17,6 +17,9 @@ const Appointment = () => {
     const [slotTime, setSlotTime] = useState('')
 
     const navigate = useNavigate()
+
+    // Simple check for Mongo ObjectId
+    const isObjectId = (id) => /^[0-9a-fA-F]{24}$/.test(id)
 
     const fetchDocInfo = async () => {
         const docInfo = doctors.find((doc) => doc._id === docId)
@@ -106,7 +109,14 @@ const Appointment = () => {
         const slotDate = day + "_" + month + "_" + year
 
         try {
-            const { data } = await axios.post(backendUrl + '/api/user/book-appointment', { docId, slotDate, slotTime }, { headers: { token } })
+            const payload = { docId, slotDate, slotTime }
+
+            // If this is a static service (e.g. "service1"), send full service data
+            if (!isObjectId(docId) && docInfo) {
+                payload.docData = docInfo
+            }
+
+            const { data } = await axios.post(backendUrl + '/api/user/book-appointment', payload, { headers: { token } })
             if (data.success) {
                 toast.success(data.message)
                 getDoctosData()
@@ -146,7 +156,7 @@ const Appointment = () => {
     }
 
     return docInfo ? (
-        <div className='px-4 md:px-8 py-8'>
+        <div className='px-4 md:px-8 py-8 bg-light min-h-screen fade-in-up'>
             <div className='max-w-7xl mx-auto'>
                 {/* Breadcrumb */}
                 <div className='mb-6'>
@@ -168,7 +178,7 @@ const Appointment = () => {
                                     <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
                                 </svg>
                             </li>
-                            <li className='text-gray-500'>{docInfo.name}</li>
+                            <li className='text-gray-500'>{docInfo.speciality} Service</li>
                         </ol>
                     </nav>
                 </div>
@@ -176,19 +186,19 @@ const Appointment = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
                     {/* Provider Info */}
                     <div className='lg:col-span-2'>
-                        <div className='bg-white rounded-2xl shadow-card border border-gray-100 overflow-hidden'>
+                        <div className='service-card bg-white rounded-2xl shadow-card border border-gray-100 overflow-hidden'>
                             <div className='md:flex'>
                                 <div className='md:w-2/5'>
                                     <img 
                                         className='w-full h-64 md:h-full object-cover' 
-                                        src={docInfo.image} 
-                                        alt={docInfo.name} 
+                                        src={serviceImages[docInfo.speciality] || docInfo.image} 
+                                        alt={`${docInfo.speciality} service`} 
                                     />
                                 </div>
                                 <div className='p-6 md:w-3/5'>
                                     <div className='flex flex-wrap justify-between items-start gap-4 mb-4'>
                                         <div>
-                                            <h1 className='text-2xl font-bold text-dark mb-1'>{docInfo.name}</h1>
+                                            <h1 className='text-2xl font-bold text-dark mb-1'>{docInfo.speciality} Service</h1>
                                             <div className='flex flex-wrap items-center gap-2'>
                                                 <span className={`category-badge ${getCategoryColor(docInfo.speciality)}`}>
                                                     {docInfo.speciality}
@@ -277,7 +287,7 @@ const Appointment = () => {
 
                     {/* Booking Panel */}
                     <div className='lg:col-span-1'>
-                        <div className='bg-white rounded-2xl shadow-card border border-gray-100 p-6 sticky top-24'>
+                        <div className='service-card bg-white rounded-2xl shadow-card border border-gray-100 p-6 sticky top-24'>
                             <h2 className='text-xl font-bold text-dark mb-6'>Book Service</h2>
                             
                             <div className='mb-6'>

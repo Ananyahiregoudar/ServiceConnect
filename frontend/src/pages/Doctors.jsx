@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/AppContext'
 import { useNavigate, useParams } from 'react-router-dom'
+import { serviceImages } from '../assets/assets'
 
 const Doctors = () => {
   const { speciality } = useParams()
@@ -192,13 +193,13 @@ const Doctors = () => {
                       <div className='md:w-1/3'>
                         <img 
                           className='w-full h-48 md:h-full object-cover' 
-                          src={item.image} 
-                          alt={item.name} 
+                          src={serviceImages[item.speciality] || item.image} 
+                          alt={`${item.speciality} service`} 
                         />
                       </div>
                       <div className='p-6 md:w-2/3'>
                         <div className='flex justify-between items-start mb-3'>
-                          <h3 className='text-xl font-semibold text-dark'>{item.name}</h3>
+                          <h3 className='text-xl font-semibold text-dark'>{item.speciality} Service</h3>
                           <span className={`category-badge ${getCategoryColor(item.speciality)}`}>
                             {item.speciality}
                           </span>

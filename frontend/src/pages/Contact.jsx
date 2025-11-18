@@ -3,21 +3,21 @@ import { assets } from '../assets/assets'
 
 const Contact = () => {
   return (
-    <div>
+    <div className='px-4 md:px-8 py-8'>
 
-      <div className='text-center text-2xl pt-10 text-[#707070]'>
+      <div className='text-center text-2xl md:text-3xl font-bold pt-2 text-dark mb-8 fade-in-up'>
         <p>CONTACT <span className='text-gray-700 font-semibold'>US</span></p>
       </div>
 
       <div className='my-10 flex flex-col justify-center md:flex-row gap-10 mb-28 text-sm'>
-        <img className='w-full md:max-w-[360px]' src={assets.contact_image} alt="" />
-        <div className='flex flex-col justify-center items-start gap-6'>
+        <img className='w-full md:max-w-[360px] rounded-2xl shadow-card object-cover fade-in-up' src={assets.contact_image} alt="Contact BookMyService" />
+        <div className='flex flex-col justify-center items-start gap-6 bg-white rounded-2xl shadow-card border border-gray-100 p-6 md:p-8 fade-in-up'>
           <p className=' font-semibold text-lg text-gray-600'>OUR OFFICE</p>
           <p className=' text-gray-500'>54709 Willms Station <br /> Suite 350, Washington, USA</p>
-          <p className=' text-gray-500'>Tel: (415) 555-0132 <br /> Email: serviceconnect@gmail.com</p>
-          <p className=' font-semibold text-lg text-gray-600'>CAREERS AT SERVICECONNECT</p>
+          <p className=' text-gray-500'>Tel: (415) 555-0132 <br /> Email: support@bookmyservice.com</p>
+          <p className=' font-semibold text-lg text-gray-600'>CAREERS AT BOOKMYSERVICE</p>
           <p className=' text-gray-500'>Learn more about our teams and job openings.</p>
-          <button className='border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500'>Explore Jobs</button>
+          <button className='btn-primary px-8 py-3 text-sm'>Explore Jobs</button>
         </div>
       </div>
 

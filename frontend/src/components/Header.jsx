@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 
 const Header = () => {
     return (
-        <div className='relative bg-gradient-to-r from-primary to-secondary rounded-3xl px-6 md:px-10 lg:px-20 overflow-hidden'>
+        <div className='relative bg-gradient-to-r from-primary to-secondary rounded-3xl px-6 md:px-10 lg:px-20 overflow-hidden fade-in-up'>
             {/* Background pattern */}
             <div className='absolute inset-0 opacity-10'>
                 <div className='absolute top-0 right-0 w-64 h-64 bg-white rounded-full -mt-32 -mr-32'></div>
@@ -46,12 +46,11 @@ const Header = () => {
                 
                 {/* Right Content - Hero Image */}
                 <div className='lg:w-1/2 mt-10 lg:mt-0 flex justify-center'>
-                    <div className='relative'>
+                    <div className='relative float-slow'>
                         <div className='w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-white/20 backdrop-blur-sm absolute -top-6 -left-6'></div>
                         <div className='w-64 h-64 md:w-80 md:h-80 rounded-2xl bg-white/20 backdrop-blur-sm absolute -bottom-6 -right-6'></div>
-                        <div className='relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-hero'>
+                        <div className='relative w-64 h-64 md:w-80 md:h-80 hero-image'>
                             <img 
-                                className='w-full h-full object-cover' 
                                 src={assets.header_img} 
                                 alt="Home Services" 
                             />
